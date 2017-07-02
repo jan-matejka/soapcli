@@ -47,7 +47,7 @@ function f-symlink {
 }
 
 function check-arg {
-  test -z "${2:-}" && fatal "missing argument %s" $1
+  test -n "${2:-}" || fatal "missing argument %s" $1
 }
 
 function check-executable {

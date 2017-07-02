@@ -2,19 +2,27 @@
 
 export TESTTMP="$CRAMTMP/$TESTFILE"
 
-FAKEPATH="$TESTTMP/path"
-mkdir "${FAKEPATH}" || return
-export PATH="${FAKEPATH}:${PATH}"
+export FAKE_BINDIR="$TESTTMP/path"
+mkdir $FAKE_BINDIR || return
+export PATH="$FAKE_BINDIR:$PATH"
+
+export XDG_CACHE_HOME=$TESTTMP/xdg-cache
+export XDG_CONFIG_HOME=$TESTTMP/xdg-config
 
 function setup-clean {
-  rm -rf ${TESTTMP}
-  mkdir ${TESTTMP}
+  rm -rf $TESTTMP
+  mkdir $TESTTMP
 }
 
 function setup-script {
-  echo '#!/bin/bash' > $2
-  echo "$1" >> $2
-  chmod +x $2
+  local f=$FAKE_BINDIR/$2
+  echo '#!/bin/bash' > $f
+  echo "$1" >> $f
+  chmod +x $f
+}
+
+function fake-curl {
+  setup-script 'echo "${0##*/} $@" >&2; exec tee' curl
 }
 
 function die {
