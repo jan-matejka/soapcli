@@ -16,8 +16,8 @@ BMANDIR    = $(BROOTDIR)/man/man1
 
 DIRS = $(BLIBDIR) $(BBINDIR)
 
-CMDS     = $(patsubst src/soapcli/%.zsh,%,$(shell echo src/soapcli/*))
-MANS     = $(patsubst Documentation/%.rst,%.1,$(shell echo Documentation/soapcli*))
+CMDS     = $(patsubst src/soapcli/%.zsh,%,$(wildcard src/soapcli/*))
+MANS     = $(patsubst Documentation/%.rst,%.1,$(wildcard Documentation/soapcli*))
 
 BUILD_DEPS  =
 BUILD_DEPS += $(BMANDIR)
