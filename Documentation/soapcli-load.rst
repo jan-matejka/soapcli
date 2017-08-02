@@ -12,7 +12,7 @@ laod wsdl definitions
 SYNOPSIS
 ========
 
-soapcli load [-v] <file> [<file>...]
+soapcli load [-v] <glob> [<glob>...]
 
 OPTIONS
 =======
@@ -22,7 +22,8 @@ OPTIONS
 DESCRIPTION
 ===========
 
-Load wsdl <file> to generate request templates from.
+Load wsdl files matched by any of the <glob> to generate request templates
+from.
 
 Note the wsdl files must be correct. The template generation actually
 happens here but is difficult to detect when errors happen so the command

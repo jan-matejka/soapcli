@@ -11,7 +11,8 @@ zparseopts -K -D -a args v -verbose
 find $SOAPCLI_CACHE_XML_TEMPLATES -delete
 mkdir $SOAPCLI_CACHE_XML_TEMPLATES
 
-cp $@ $SOAPCLI_CACHE_XML_TEMPLATES
+files=(${~@})
+cp $files $SOAPCLI_CACHE_XML_TEMPLATES
 
 out=2
 (( ${args[(I)-v]} || ${args[(I)--verbose]} )) || out=/dev/null

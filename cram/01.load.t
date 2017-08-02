@@ -33,3 +33,14 @@ If we see here the fakes output, we'll see it with real ones too.
   $ cat $TESTTMP/out
   wsdl2h StockQuote.wsdl
   soapcpp2 StockQuote.h
+
+Load glob
+=========
+
+  $ setup-clean
+  $ soapcli operations
+  $ cd $TESTDIR
+  $ soapcli load 'wsdl/*'
+  $ soapcli operations
+  StockQuoteSoapBinding.GetTradePrice
+  StockQuoteSoapBinding.GetTradePrice2
