@@ -12,7 +12,12 @@ laod wsdl definitions
 SYNOPSIS
 ========
 
-soapcli load <file> [<file>...]
+soapcli load [-v] <file> [<file>...]
+
+OPTIONS
+=======
+
+--verbose, -v    verbose output - display the output of gsoap commands
 
 DESCRIPTION
 ===========
