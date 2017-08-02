@@ -13,3 +13,8 @@ Load by relative path
 
   $ setup-clean
   $ soapcli operations
+  $ cd $TESTDIR
+  $ soapcli load *wsdl
+  $ soapcli operations
+  StockQuoteSoapBinding.GetTradePrice
+  StockQuoteSoapBinding.GetTradePrice2

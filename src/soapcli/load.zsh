@@ -5,10 +5,12 @@ SELF="${0##*/}"
 
 setopt err_exit
 
-cd $SOAPCLI_CACHE_XML_TEMPLATES
-find . ! -path . -delete
-cp $@ ./
+find $SOAPCLI_CACHE_XML_TEMPLATES -delete
+mkdir $SOAPCLI_CACHE_XML_TEMPLATES
 
+cp $@ $SOAPCLI_CACHE_XML_TEMPLATES
+
+cd $SOAPCLI_CACHE_XML_TEMPLATES
 wsdls=(*.wsdl)
 
 setopt noerr_exit
