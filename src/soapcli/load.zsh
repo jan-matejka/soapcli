@@ -20,6 +20,5 @@ out=2
 cd $SOAPCLI_CACHE_XML_TEMPLATES
 wsdls=(*.wsdl)
 
-setopt noerr_exit
 printf "%s\n" $wsdls | redir -2 $out xargs -n1 -I% -- wsdl2h %
 printf "%s\n" ${wsdls//.wsdl/.h} | redir -2 $out xargs -n1 -I% -- soapcpp2 %
