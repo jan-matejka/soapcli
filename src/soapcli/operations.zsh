@@ -7,5 +7,5 @@ setopt err_exit
 
 cd $SOAPCLI_CACHE_XML_TEMPLATES
 ops=(*.req.xml)
-ops=${^ops%%.req.xml}
+ops=(${^ops%%.req.xml})
 printf "%s\n" $ops

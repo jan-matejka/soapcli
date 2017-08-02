@@ -21,11 +21,28 @@
            <input message="tns:GetTradePriceInput"/>
            <output message="tns:GetTradePriceOutput"/>
         </operation>
+
+        <operation name="GetTradePrice2">
+           <input message="tns:GetTradePriceInput"/>
+           <output message="tns:GetTradePriceOutput"/>
+        </operation>
     </portType>
 
     <binding name="StockQuoteSoapBinding" type="tns:StockQuotePortType">
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="GetTradePrice">
+           <soap:operation soapAction="http://example.com/GetTradePrice"/>
+           <input>
+               <soap:body use="encoded" namespace="http://example.com/stockquote"
+                          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:body use="encoded" namespace="http://example.com/stockquote"
+                          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="GetTradePrice2">
            <soap:operation soapAction="http://example.com/GetTradePrice"/>
            <input>
                <soap:body use="encoded" namespace="http://example.com/stockquote"
