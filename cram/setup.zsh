@@ -29,3 +29,7 @@ function die {
   printf "$1\n"
   exit 1
 }
+
+function setup-load-stock-quote {
+  soapcli load $TESTDIR/wsdl/*
+}

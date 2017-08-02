@@ -7,9 +7,18 @@
           xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
           xmlns="http://schemas.xmlsoap.org/wsdl/">
 
+    <types>
+      <xsd:schema
+        targetNamespace="http://example.com/stockquote.wsdl"
+        xmlns:tns="http://example.com/stockquote.wsdl"
+        xmlns="http://www.w3.org/2000/10/XMLSchema"
+      >
+        <xsd:include schemaLocation="StockQuote.xsd"/>
+      </xsd:schema>
+    </types>
+
     <message name="GetTradePriceInput">
-        <part name="tickerSymbol" element="xsd:string"/>
-        <part name="time" element="xsd:timeInstant"/>
+      <part name="input" element="tns:TradePrice" />
     </message>
 
     <message name="GetTradePriceOutput">
@@ -57,7 +66,7 @@
 
     <service name="StockQuoteService">
         <documentation>My first service</documentation>
-        <port name="StockQuotePort" binding="tns:StockQuoteBinding">
+        <port name="StockQuotePort" binding="tns:StockQuoteSoapBinding">
            <soap:address location="http://example.com/stockquote"/>
         </port>
     </service>

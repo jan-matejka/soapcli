@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+  targetNamespace="http://example.com/stockquote.wsdl"
+  xmlns:tns="http://example.com/stockquote.wsdl"
+  xmlns="http://www.w3.org/2000/10/XMLSchema"
+>
+  <complexType name="TradePrice">
+    <all>
+      <element
+        name="ticker"
+        type="string"
+        minOccurs="1"
+        maxOccurs="1"
+      />
+      <element
+        name="time"
+        type="timeInstant"
+        minOccurs="1"
+        maxOccurs="1"
+      />
+    </all>
+  </complexType>
+</schema>
