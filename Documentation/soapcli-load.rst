@@ -1,27 +1,35 @@
 soapcli-load
 ############
 
-laod wsdl definitions
+load wsdl definitions
 ---------------------
 
 :Manual section: 1
-:Date: 2017-07-10
+:Date: 2017-08-02
 :Author: Jan Matějka yac@blesmrt.net
 :Manual group: soapcli manual
 
 SYNOPSIS
 ========
 
-soapcli load <file> [<file>...]
+soapcli load [-v] <glob> [<glob>...]
+
+OPTIONS
+=======
+
+--verbose, -v    verbose output - display the output of gsoap commands
 
 DESCRIPTION
 ===========
 
-Load wsdl <file> to generate request templates from.
+Load wsdl files matched by any of the <glob> to generate request templates
+from.
 
-Note the wsdl files must be correct. The template generation actually
-happens here but is difficult to detect when errors happen so the command
-still ends successfully even when the generation went wrong.
+If load fails, it is likely due to invalid wsdl files. Re-run the load in
+verbose mode to see what gsoap has to say about it.
 
 .. include:: common-see-also.rst
+
+* ``man 1 soapcli-reload``
+
 .. include:: common-foot.rst

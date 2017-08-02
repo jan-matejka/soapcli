@@ -54,4 +54,10 @@ function check-executable {
   type "$1" >/dev/null 2>&1 || fatal "cannot execute %s" $1
 }
 
+function redir {
+  declare -A args=( -0 0 -1 1 -2 2 )
+  zparseopts -K -D -A args 0: 1: 2:
+  "$@" <&${args[-0]} 1>&${args[-1]} 2>&${args[-2]}
+}
+
 ${SOAPCLI_XTRACE:-false} && set -x

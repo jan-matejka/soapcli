@@ -35,6 +35,8 @@ COMMANDS
 
 * ``man 1 soapcli-load``
 
+* ``man 1 soapcli-reload``
+
 * ``man 1 soapcli-operations``
 
 * ``man 1 soapcli-send``
