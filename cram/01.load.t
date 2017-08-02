@@ -44,3 +44,40 @@ Load glob
   $ soapcli operations
   StockQuoteSoapBinding.GetTradePrice
   StockQuoteSoapBinding.GetTradePrice2
+
+Reload
+######
+
+  $ setup-clean
+  $ soapcli operations
+  $ mkdir $TESTTMP/wsdl
+  $ cp -a $TESTDIR/wsdl/* $TESTTMP/wsdl/
+  $ cd $TESTTMP
+  $ soapcli load 'wsdl/*xsd' $TESTTMP'/wsdl/*wsdl'
+  $ soapcli operations
+  StockQuoteSoapBinding.GetTradePrice
+  StockQuoteSoapBinding.GetTradePrice2
+  $ ls -1 wsdl
+  StockQuote.wsdl
+  StockQuote.xsd
+  $ rm -r $(soapcli path xml-tpl)
+  $ soapcli operations
+  $ rename StockQuote FooBar wsdl/*wsdl
+Have to rename only the wsdl since it includes the "StockQuote.xsd"
+otherwise we would have to fix the include as well.
+
+  $ ls -1 wsdl
+  FooBar.wsdl
+  StockQuote.xsd
+  $ soapcli reload
+  $ soapcli operations
+  StockQuoteSoapBinding.GetTradePrice
+  StockQuoteSoapBinding.GetTradePrice2
+
+Reload is NOOP if no glob is saved
+==================================
+
+  $ cd /
+  $ setup-clean
+  $ fake -cv soapcli-load
+  $ soapcli reload

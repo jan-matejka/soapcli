@@ -29,4 +29,7 @@ If load fails, it is likely due to invalid wsdl files. Re-run the load in
 verbose mode to see what gsoap has to say about it.
 
 .. include:: common-see-also.rst
+
+* ``man 1 soapcli-reload``
+
 .. include:: common-foot.rst
