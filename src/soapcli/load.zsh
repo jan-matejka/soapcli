@@ -8,14 +8,8 @@ setopt err_exit
 declare -a args
 zparseopts -K -D -a args v -verbose
 
-declare -a save_globs
-for i in $@; do
-  if [[ ${i[1,1]} = '/' ]]; then
-    save_globs+=( $i )
-  else
-    save_globs+=( $(pwd)/$i )
-  fi
-done
+save_globs=(${^@/\~/$HOME})
+save_globs=("${save_globs:a}")
 
 find $SOAPCLI_CACHE_XML_TEMPLATES -delete
 mkdir $SOAPCLI_CACHE_XML_TEMPLATES

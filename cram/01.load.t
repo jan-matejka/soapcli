@@ -81,3 +81,15 @@ Reload is NOOP if no glob is saved
   $ setup-clean
   $ fake -cv soapcli-load
   $ soapcli reload
+
+Reload starting with ~
+######################
+
+  $ cd /
+  $ setup-clean
+  $ export HOME=$TESTTMP
+  $ mkdir $TESTTMP/wsdl
+  $ cp -a $TESTDIR/wsdl/* $TESTTMP/wsdl/
+  $ soapcli load '~/wsdl/*'
+  $ soapcli config load.globs
+  /tmp/cramtests-*/01.load.t/wsdl/\* (glob)
