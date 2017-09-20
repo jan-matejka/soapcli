@@ -11,7 +11,7 @@ exec \
   curl \
     ${proxy} \
     --header "Content-Type: text/xml;charset=UTF-8" \
-    -d@- \
+    --data-binary @- \
     --silent \
     --show-error \
     $(soapcli config endpoint) |
