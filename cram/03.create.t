@@ -10,7 +10,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:ns1="http://example.com/stockquote.wsdl"
     xmlns:ns2="http://example.com/stockquote">
-   <SOAP-ENV:Body  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   <SOAP-ENV:Body SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <ns2:GetTradePrice>
      <ns1:TradePrice>
       <ticker></ticker>
