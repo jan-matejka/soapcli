@@ -13,3 +13,11 @@
   curl -x poo --header Content-Type: text/xml;charset=UTF-8 --data-binary @- --silent --show-error example.com
   <?xml version="1.0"?>
   <foo/>
+
+Additional curl options
+=======================
+
+  $ echo "exec cat" | fake -c xmllint
+  $ fake -vc curl
+  $ soapcli config curl.options --insecure
+  $ echo "<foo></foo>" | soapcli send

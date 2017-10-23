@@ -7,6 +7,8 @@ declare -a proxy
 proxy=($(soapcli config proxy))
 (( ${#proxy} )) && proxy=( "-x" $proxy )
 
+opts=($(soapcli config "curl.options"))
+
 exec \
   curl \
     ${proxy} \
@@ -14,5 +16,6 @@ exec \
     --data-binary @- \
     --silent \
     --show-error \
+    $opts \
     $(soapcli config endpoint) |
   xmllint --format -
