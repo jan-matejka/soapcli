@@ -1,8 +1,8 @@
 soapcli
 #######
 
-cli soap client
----------------
+CLI and TUI soap client
+-----------------------
 
 :Manual section: 1
 :Date: 2017-07-10
